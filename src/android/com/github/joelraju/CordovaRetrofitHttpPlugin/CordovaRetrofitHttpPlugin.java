@@ -38,9 +38,8 @@ public class CordovaRetrofitHttpPlugin extends CordovaPlugin {
             String urlString = args.getString(0);
             JSONObject params = args.getJSONObject(1);
             JSONObject headers = args.getJSONObject(2);
-            HashMap<?, ?> paramsMap = this.getMapFromJSONObject(params);
             HashMap<String, String> headersMap = this.getStringMapFromJSONObject(headers);
-            RetrofitHttpPost get = new RetrofitHttpPost(urlString, paramsMap, headersMap, callbackContext);
+            RetrofitHttpPost get = new RetrofitHttpPost(urlString, params, headersMap, callbackContext);
             cordova.getThreadPool().execute(get);
         } else if (action.equals("downloadFile")) {
             String urlString = args.getString(0);
